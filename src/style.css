@@ -99,4 +99,19 @@ form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+  justify-items: center;
+}
+
+#btn_create,
+#btn_submit {
+  height: 50px; /* Устанавливает высоту кнопки в 50 пикселей */
+  width: 150px;
+  padding: 10px 20px; /* Устанавливает отступы внутри кнопки */
+  font-size: 16px; /* Размер шрифта внутри кнопки */
+  color: rgb(176, 198, 130);
+}
+
+#btn_create:hover,
+#btn_submit:hover {
+  background-color: rgb(131, 157, 76);
 }
