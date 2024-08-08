@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form id="mainForm" action="#">
+        <fieldset class="section">
+          <h3>Client details</h3>
+          <div class="input section-one">
+            <div class="input">
+              <label for="first-name"></label>
+              <input type="text" id="first-name" placeholder="First name" />
+            </div>
+            <div class="input">
+              <label for="last-name"></label>
+              <input type="text" id="last-name" placeholder="Last name" />
+            </div>
+          </div>
+
+          <div class="input">
+            <label for="phone"></label>
+            <input type="text" id="phone" placeholder="Phone" />
+          </div>
+
+          <div class="input">
+            <label for="email"></label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Email (optional)"
+              required
+            />
+          </div>
+        </fieldset>
+
+        <fieldset class="section">
+          <h3>Job details</h3>
+          <div class="input section-two">
+            <div class="input">
+              <label for="job-type"></label>
+              <select id="job-type" name="job-type" required>
+                <option value="">Job type</option>
+              </select>
+              <!-- <input type="text" id="job-type" placeholder="Job type" /> -->
+            </div>
+
+            <div class="input">
+              <label for="job-source"></label>
+              <select id="job-source" name="job-source" required>
+                <option value="">Job source</option>
+              </select>
+              <!-- <input type="text" id="job-source" placeholder="Job source" /> -->
+            </div>
+          </div>
+          <div class="input">
+            <label for="job-description"></label>
+            <input
+              type="text"
+              id="job-description"
+              placeholder="Job description (optional)"
+            />
+          </div>
+          <!-- <div class="input">
+            <textarea
+              type="text"
+              id="job-description"
+              placeholder="Type your text"
+            ></textarea>
+          </div> -->
+        </fieldset>
+
+        <fieldset class="section">
+          <h3>Service location</h3>
+          <div class="input">
+            <label for="address"></label>
+            <input type="text" id="address" placeholder="Address" />
+          </div>
+          <div class="input">
+            <label for="city"></label>
+            <input type="text" id="city" placeholder="City" />
+          </div>
+          <div class="input">
+            <label for="state"></label>
+            <input type="text" id="state" placeholder="State" />
+          </div>
+
+          <div class="input section-two">
+            <div class="input item">
+              <label for="zip-code"></label>
+              <input type="text" id="zip-code" placeholder="Zip code" />
+            </div>
+            <div class="input">
+              <label for="area"></label>
+              <select id="area" name="area" required>
+                <option value="">Area</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="section">
+          <h3>Scheduled</h3>
+          <div class="input">
+            <label for="start-date"></label>
+            <input type="date" id="start-date" placeholder="Start date" />
+          </div>
+
+          <div class="input section-two">
+            <div class="input">
+              <label for="start-time"></label>
+              <input type="time" id="start-time" placeholder="Start time" />
+            </div>
+            <div class="input">
+              <label for="end-time"></label>
+              <input type="time" id="end-time" placeholder="End time" />
+            </div>
+          </div>
+
+          <div class="input">
+            <label for="test-select"></label>
+            <select id="test-select" placeholder="Test select">
+              <option value="">Test select</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <button type="submit">Create jod</button>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <script src="./src/main.js"></script>
+  </body>
+</html>

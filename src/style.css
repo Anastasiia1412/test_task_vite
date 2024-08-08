@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  height: 100vh; /* Устанавливаем высоту на весь экран */
+  margin: 0; /* Убираем стандартные отступы браузера */
+  display: flex;
+  justify-content: center; /* Центрирование по горизонтали */
+  align-items: center; /* Центрирование по вертикали */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+h3 {
+  color: rgba(122, 120, 120, 0.963);
+  font-weight: 600;
+  font-family: Arial, sans-serif;
+  margin-bottom: 5px;
+}
+textarea {
+  font-family: Arial;
+}
+
+.input {
+  margin-bottom: 15px;
+}
+
+.input label {
+  display: block;
+}
+
+.input input,
+.input select,
+.input textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 40px;
+}
+
+.section-one {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 0px;
+}
+
+#job-description {
+  height: 92px;
+}
+
+#area {
+  width: 100%;
+  flex: 1;
+  font-family: Arial, sans-serif;
+  color: rgba(122, 120, 120, 0.963);
+}
+
+.section-two {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 0px;
+}
+
+#start-date,
+#test-select,
+#start-time,
+#end-time,
+#job-type,
+#job-source {
+  font-family: Arial, sans-serif;
+  color: rgba(122, 120, 120, 0.963);
+}
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
