@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "vite": "^5.4.0"
+  },
+  "dependencies": {
+    "pipedrive": "^23.2.2"
   }
 }
