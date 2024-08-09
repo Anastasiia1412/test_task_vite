@@ -1,6 +1,9 @@
 
 import { getDomain, createDeal, getFields } from "./pipedrive";
+import { getGetFieldByName } from "./helpers"
 let allDealFields = await getFields();
+let custom_hkey = getGetFieldByName("Job type", allDealFields)
+console.log(custom_hkey)
 
 console.log("Program started")
 
