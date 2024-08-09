@@ -1,73 +1,82 @@
-﻿// import { ApiClient, DealsApi } from 'pipedrive';
-
-
-import Pipedrive from 'pipedrive';
+﻿import { ApiClient, NewDeal, UsersApi } from 'pipedrive';
 
 // Инициализация API клиента
-let apiClient = new Pipedrive.ApiClient();
+let apiClient = new ApiClient();
 // Настройка API ключа
 let api_key = apiClient.authentications['api_key'];
-api_key.apiKey = '22674c5639c7c3f5a758d7d659c9536a5189511c'; //мой Personal preferences ---> Your personal API token
+api_key.apiKey = import.meta.env.VITE_PIPEDRIVE_API_KEY; //мой Personal preferences ---> Your personal API token
 
-let apiInstance = new Pipedrive.DealsApi(apiClient);
-// const deals = await apiInstance.getDeals();
-// console.log(deals)
 
-// Создание нового объекта сделки (Deal)
-let opts = Pipedrive.NewDeal.constructFromObject({
-    title: "Bob",
-    job_comment: "commenct"
+export async function getDomain() {
+    let domain
+    let apiInstance = new UsersApi(apiClient);
+    await apiInstance.getCurrentUser().then((data) => {
+        console.log(data);
+        domain = data.data.company_domain
+    }, (error) => {
+        console.error(error);
+    });
 
-});
-
-async function addNewDeal() {
-    try {
-        // Добавление сделки через API
-        let res = await apiInstance.addDeal(opts);
-        console.log('API called successfully. Returned data:', res);
-    } catch (error) {
-        console.error('Error while adding deal:', error);
-    }
+    return domain
 }
 
-addNewDeal();
 
-// let res = await apiInstance.addDeal(opts);
-// console.log(res);
-// apiInstance.addDeal(opts).then((data) => {
-//     console.log('API called successfully. Returned data: ' + data);
-// }, (error) => {
-//     console.error(error);
+
+
+// // Создание нового объекта сделки (Deal)
+// let opts = Pipedrive.NewDeal.constructFromObject({
+//     title: "Bob",
 // });
+
 
 // async function addNewDeal() {
 //     try {
-//         console.log("Attempting to add a new deal...");
+//         // Добавление сделки через API
 //         let res = await apiInstance.addDeal(opts);
-//         console.log("Deal added successfully:", res);
+//         console.log('API called successfully. Returned data:', res);
 //     } catch (error) {
-//         console.error("Error occurred during addDeal:", error);
+//         console.error('Error while adding deal:', error);
 //     }
 // }
 
-
-
-
-// async function addNewDeal() {
-//     let apiClient = new Pipedrive.ApiClient();
-//     let api_key = apiClient.authentications['api_key'];
-//     api_key.apiKey = '22674c5639c7c3f5a758d7d659c9536a5189511c';
-//     let apiInstance = new Pipedrive.DealsApi(apiClient);
-//     let opts = Pipedrive.NewDeal.constructFromObject({
-//         title: "Bob",
-//         job_comment: "commenct"
-
-//     });
-
-//     apiInstance.addDeal(opts).then((data) => {
-//         console.log('API called successfully. Returned data: ' + data);
-//     }, (error) => {
-//         console.error(error);
-//     });
-// }
 // addNewDeal();
+
+// // let res = await apiInstance.addDeal(opts);
+// // console.log(res);
+// // apiInstance.addDeal(opts).then((data) => {
+// //     console.log('API called successfully. Returned data: ' + data);
+// // }, (error) => {
+// //     console.error(error);
+// // });
+
+// // async function addNewDeal() {
+// //     try {
+// //         console.log("Attempting to add a new deal...");
+// //         let res = await apiInstance.addDeal(opts);
+// //         console.log("Deal added successfully:", res);
+// //     } catch (error) {
+// //         console.error("Error occurred during addDeal:", error);
+// //     }
+// // }
+
+
+
+
+// // async function addNewDeal() {
+// //     let apiClient = new Pipedrive.ApiClient();
+// //     let api_key = apiClient.authentications['api_key'];
+// //     api_key.apiKey = '22674c5639c7c3f5a758d7d659c9536a5189511c';
+// //     let apiInstance = new Pipedrive.DealsApi(apiClient);
+// //     let opts = Pipedrive.NewDeal.constructFromObject({
+// //         title: "Bob",
+// //         job_comment: "commenct"
+
+// //     });
+
+// //     apiInstance.addDeal(opts).then((data) => {
+// //         console.log('API called successfully. Returned data: ' + data);
+// //     }, (error) => {
+// //         console.error(error);
+// //     });
+// // }
+// // addNewDeal();
