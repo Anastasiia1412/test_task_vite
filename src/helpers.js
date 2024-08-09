@@ -12,3 +12,13 @@ export function getGetFieldByName(name, dealFields) {
     }
     return tmp;
 }
+
+export function getHkeyValueFromOption(selector_option) {
+    try {
+        let tmp = JSON.parse(selector_option)
+        return tmp
+
+    } catch (error) {
+        console.error("Не могу распарить опцию")
+    }
+}

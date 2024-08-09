@@ -1,6 +1,6 @@
 
 import { getDomain, createDeal, getFields } from "./pipedrive";
-import { getGetFieldByName } from "./helpers"
+import { getGetFieldByName, getHkeyValueFromOption } from "./helpers"
 let allDealFields = await getFields();
 
 
@@ -11,7 +11,8 @@ function createDealObject() {
     let newDeal = {}
     newDeal['title'] = "some title";
     newDeal['status'] = document.getElementById('job-description').value;
-    newDeal['some-hkey'] = document.getElementById('job-type').value;
+    let selectedJobType = getHkeyValueFromOption(document.getElementById('job-type').value)
+    newDeal[selectedJobType.key] = selectedJobType.value
     return newDeal
 }
 
@@ -30,6 +31,12 @@ function buildInputForm() {
     const jobTypeSelector = document.getElementById('job-type');
     for (const [option_key, option_value] of Object.entries(jobTypeField.options)) {
         jobTypeSelector.options.add(new Option(option_value.label, JSON.stringify({ key: jobTypeField.key, value: option_value.id })))
+    }
+
+    let jobSourceField = getGetFieldByName("Job source", allDealFields)
+    const jobSourceSelector = document.getElementById('job-source');
+    for (const [option_key, option_value] of Object.entries(jobSourceField.options)) {
+        jobSourceSelector.options.add(new Option(option_value.label, JSON.stringify({ key: jobSourceField.key, value: option_value.id })))
     }
 
 
