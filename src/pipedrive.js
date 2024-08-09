@@ -1,4 +1,4 @@
-﻿import { ApiClient, NewDeal, UsersApi } from 'pipedrive';
+﻿import { ApiClient, NewDeal, UsersApi, DealFieldsApi, DealsApi } from 'pipedrive';
 
 // Инициализация API клиента
 let apiClient = new ApiClient();
@@ -21,6 +21,25 @@ export async function getDomain() {
     return domain
 }
 
+
+export async function createDeal(deal) {
+    let res
+    let apiInstance = new DealsApi(apiClient);
+
+    let opts = NewDeal.constructFromObject(deal);
+    console.log(deal);
+    await apiInstance.addDeal(opts).then(
+        (data) => {
+            console.log(data);
+            res = data;
+        },
+        (error) => {
+            console.error(error);
+        }
+    );
+    console.log(res)
+    return res
+}
 
 
 
