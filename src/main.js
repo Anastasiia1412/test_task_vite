@@ -2,8 +2,7 @@
 import { getDomain, createDeal, getFields } from "./pipedrive";
 import { getGetFieldByName } from "./helpers"
 let allDealFields = await getFields();
-let custom_hkey = getGetFieldByName("Job type", allDealFields)
-console.log(custom_hkey)
+
 
 console.log("Program started")
 
@@ -12,6 +11,7 @@ function createDealObject() {
     let newDeal = {}
     newDeal['title'] = "some title";
     newDeal['status'] = document.getElementById('job-description').value;
+    newDeal['some-hkey'] = document.getElementById('job-type').value;
     return newDeal
 }
 
@@ -24,6 +24,14 @@ async function createJobClick() {
 function buildInputForm() {
     const buttonSave = document.getElementById('btn_create');
     buttonSave.addEventListener('click', createJobClick)
+
+    //получим значения кастом филд и установим селектор для Job type
+    let jobTypeField = getGetFieldByName("Job type", allDealFields)
+    const jobTypeSelector = document.getElementById('job-type');
+    for (const [option_key, option_value] of Object.entries(jobTypeField.options)) {
+        jobTypeSelector.options.add(new Option(option_value.label, JSON.stringify({ key: jobTypeField.key, value: option_value.id })))
+    }
+
 
 }
 
