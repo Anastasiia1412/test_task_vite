@@ -27,8 +27,9 @@ export async function createDeal(deal) {
     let apiInstance = new DealsApi(apiClient);
 
     let opts = NewDeal.constructFromObject(deal);
-    console.log(deal);
-    await apiInstance.addDeal(opts).then(
+    console.log("runnin the api")
+    console.log(opts);
+    await apiInstance.addDeal(deal).then(
         (data) => {
             console.log(data);
             res = data;
@@ -62,6 +63,20 @@ export async function getFields() {
     );
     return dealFields
 }
+
+export async function getAllDeals() {
+    let apiInstance = new DealsApi(apiClient);
+
+    await apiInstance.getDeals().then(
+        (data) => {
+            console.log(data);
+        },
+        (error) => {
+            console.error(error);
+        }
+    );
+}
+
 
 
 
