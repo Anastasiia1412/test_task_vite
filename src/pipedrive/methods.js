@@ -7,6 +7,7 @@ let api_key = apiClient.authentications['api_key'];
 api_key.apiKey = import.meta.env.VITE_PIPEDRIVE_API_KEY; //мой Personal preferences ---> Your personal API token
 
 
+
 export async function getDomain() {
     let domain
     let apiInstance = new UsersApi(apiClient);
