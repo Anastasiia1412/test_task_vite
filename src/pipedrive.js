@@ -21,7 +21,7 @@ export async function getDomain() {
     return domain
 }
 
-
+//создаем deal в Pipedrive
 export async function createDeal(deal) {
     let res
     let apiInstance = new DealsApi(apiClient);
@@ -39,6 +39,28 @@ export async function createDeal(deal) {
     );
     console.log(res)
     return res
+}
+
+//получаем список всех полей которые существуют у Deal
+export async function getFields() {
+    let dealFields
+    let apiInstance = new DealFieldsApi(apiClient);
+    //хз зачем
+    let opts = {
+        start: 0, // Number | Pagination start
+        limit: 1000, // Number | Items shown per page
+    };
+
+    await apiInstance.getDealFields(opts).then(
+        (data) => {
+            console.log(data);
+            dealFields = data.data;
+        },
+        (error) => {
+            console.error(error);
+        }
+    );
+    return dealFields
 }
 
 

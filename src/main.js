@@ -1,5 +1,6 @@
 
-import { getDomain, createDeal } from "./pipedrive";
+import { getDomain, createDeal, getFields } from "./pipedrive";
+let allDealFields = await getFields();
 
 console.log("Program started")
 
