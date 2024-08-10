@@ -9,17 +9,27 @@
   </head>
   <body>
     <div class="container">
-      <form id="mainForm" action="#">
+      <form id="mainForm" action="#" method="POST">
         <fieldset class="section">
           <h3>Client details</h3>
           <div class="input section-one">
             <div class="input">
               <label for="first-name"></label>
-              <input type="text" id="first-name" placeholder="First name" />
+              <input
+                type="text"
+                id="first-name"
+                placeholder="First name"
+                required
+              />
             </div>
             <div class="input">
               <label for="last-name"></label>
-              <input type="text" id="last-name" placeholder="Last name" />
+              <input
+                type="text"
+                id="last-name"
+                placeholder="Last name"
+                required
+              />
             </div>
           </div>
 
@@ -30,12 +40,7 @@
 
           <div class="input">
             <label for="email"></label>
-            <input
-              type="email"
-              id="email"
-              placeholder="Email (optional)"
-              required
-            />
+            <input type="email" id="email" placeholder="Email (optional)" />
           </div>
         </fieldset>
 
@@ -44,16 +49,16 @@
           <div class="input section-two">
             <div class="input">
               <label for="job-type"></label>
-              <select id="job-type" name="job-type" required>
-                <option value="--select value--">Job type</option>
+              <select id="job-type" name="job-type">
+                <option disabled selected value>Select Job Type</option>
               </select>
               <!-- <input type="text" id="job-type" placeholder="Job type" /> -->
             </div>
 
             <div class="input">
               <label for="job-source"></label>
-              <select id="job-source" name="job-source" required>
-                <option value="">Job source</option>
+              <select id="job-source" name="job-source">
+                <option disabled selected value>Select Job Source</option>
               </select>
               <!-- <input type="text" id="job-source" placeholder="Job source" /> -->
             </div>
@@ -97,7 +102,7 @@
             </div>
             <div class="input">
               <label for="area"></label>
-              <select id="area" name="area" required>
+              <select id="area" name="area">
                 <option value="">Area</option>
               </select>
             </div>
@@ -131,9 +136,25 @@
         </fieldset>
 
         <button id="btn_create" type="submit">Create jod</button>
-        <button id="btn_submit" type="submit">Submit</button>
+        <!-- <button id="btn_submit" type="submit">Submit</button> -->
       </form>
     </div>
     <script type="module" src="./src/main.js"></script>
+
+    <!-- <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1 id="modal-header-status"></h1>
+      </div>
+    </div> -->
+    <!-- <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <p>
+          Click <a href="https://example.com" target="_blank">here</a> to visit
+          Example.com
+        </p>
+        <button onclick="closeModal()">Close</button>
+      </div>
+    </div> -->
   </body>
 </html>
