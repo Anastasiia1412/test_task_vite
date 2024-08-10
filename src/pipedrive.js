@@ -26,7 +26,11 @@ export async function createDeal(deal) {
     let res
     let apiInstance = new DealsApi(apiClient);
 
+    console.log("INPUT DEAL")
+    console.log(deal)
     let opts = NewDeal.constructFromObject(deal);
+    console.log("OUTPUT DEAL")
+    console.log(opts)
     await apiInstance.addDeal(opts).then(
         (data) => {
             console.log(data);

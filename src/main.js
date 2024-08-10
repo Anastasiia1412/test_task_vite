@@ -38,10 +38,10 @@ function createDealObject() {
     let scheduleField = getGetFieldByName("Schedule", allDealFields)
     newDeal[scheduleField.key] = document.getElementById('start-date').value;
 
-    // start - time
-    // let startTimeField = getGetFieldByName("Job start time", allDealFields)
-    // newDeal[startTimeField.key] = document.getElementById('start-time').value + ":00";
-    // newDeal[`${startTimeField.key}_timezone_id`] = 151 //руками устанавливаю
+
+    let startTimeField = getGetFieldByName("Job start time", allDealFields)
+    newDeal[startTimeField.key] = document.getElementById('start-time').value + ":00";
+    newDeal[`${startTimeField.key}_timezone_id`] = 151 //руками устанавливаю
 
     // let endTimeField = getGetFieldByName("Job end time", allDealFields)
     // newDeal[endTimeField.key] = document.getElementById('end-time').value + ":00"; //добавляю секунды тк формат в секундах
