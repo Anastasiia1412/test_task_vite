@@ -1,4 +1,3 @@
-
 import { getDomain, createDeal, getFields, getAllDeals, createPerson } from "./pipedrive";
 import { getGetFieldByName, getHkeyValueFromOption } from "./helpers"
 import { showModal } from "./modal"
