@@ -20,7 +20,7 @@ The solution is built on the official PipeDrive library for JS: [PipeDrive Node.
 ### Key Advantages of the Solution
 
 1. **Data Consistency**: This solution ensures data consistency by retrieving Job Type/Job Source from the CRM (master system). The provided video did not explicitly address this issue, so I preferred to ensure proper data consistency by dynamically loading the list of allowed custom fields.
-2. **Deal Creation**: A Deal is created immediately along with the associated Person. This reveals the full potential of using the CRM while maintaining data consistency. The provided task does not clarify whether a person is created as a separate object or not.
+2. **Person Creation**: A Deal is created immediately along with the associated Person. This reveals the full potential of using the CRM while maintaining data consistency. The provided task does not clarify whether a person is created as a separate object or not.
 3. **Automatic Deployment**: This solution is automatically built and deployed through GitHub pages, providing a convenient way to work with the application without the need to build anything locally. Additionally, secure storage of secret keys is ensured using GitHub secrets and VITE: [Vite Environment and Mode Guide](https://vitejs.dev/guide/env-and-mode)
 
 ### Note
