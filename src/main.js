@@ -1,12 +1,13 @@
 import { getDomain, createDeal, getFields, getAllDeals, createPerson } from "./pipedrive";
 import { getGetFieldByName, getHkeyValueFromOption } from "./helpers"
-import { showModal } from "./modal"
-let allDealFields = await getFields();
+let allDealFields = await getFields(); // получаем все кастомные поля из CRM
 let alldeals = await getAllDeals();
 console.log(alldeals)
 
 
 console.log("Program started")
+
+buildInputForm()
 
 function createPersonObject() {
     let newPerson = {};
@@ -14,7 +15,7 @@ function createPersonObject() {
     newPerson['last_name'] = document.getElementById('last-name').value;
     newPerson['phone'] = [{ "value": document.getElementById('phone').value }]
     newPerson['email'] = [{ "value": document.getElementById('email').value }]
-    newPerson['name'] = newPerson['first_name'] + newPerson['last_name']
+    newPerson['name'] = `${newPerson['first_name']} ${newPerson['last_name']}`
     return newPerson;
 }
 //функция которая собирает Deal из полей формы
@@ -51,7 +52,7 @@ function createDealObject() {
 }
 
 async function createJobClick() {
-    console.log("lalla")
+
     let newPerson = createPersonObject()
     let newDeal = createDealObject()
     console.log(newDeal)
@@ -61,7 +62,7 @@ async function createJobClick() {
         newDeal['person_id'] = createdPerson.data.id
         let createdDeal = await createDeal(newDeal)
         if (createdDeal != undefined) {
-            alert(`Deal created succesfully: id=${createdDeal.data.id}`)
+            alert(`Deal created successfully: id=${createdDeal.data.id}`)
         } else {
             alert(`Deal creation failed`)
         }
@@ -90,30 +91,10 @@ function buildInputForm() {
 
     // const buttonSave = document.getElementById('btn_create');
     // buttonSave.addEventListener('submit', createJobClick)
-    document.getElementById("mainForm").addEventListener('submit', (e) => {
-        e.preventDefault()
+    document.getElementById("mainForm").addEventListener('submit', (event) => {
+        event.preventDefault()
         createJobClick()
     })
 
-    // var modal = document.getElementById("myModal");
-    // var span = document.getElementsByClassName("close")[0];
-
-    // span.onclick = function () {
-    //     modal.style.display = "none";
-    // }
-
-    // //скрываем если пользователь кликает мимо
-    // window.onclick = function (event) {
-    //     if (event.target == modal) {
-    //         modal.style.display = "none";
-    //     }
-    // }
-
-
-
-
-
-
 }
 
-buildInputForm()
