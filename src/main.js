@@ -1,9 +1,9 @@
 import { getDomain, createDeal, getFields, getAllDeals, createPerson } from "./pipedrive";
 import { getGetFieldByName, getHkeyValueFromOption } from "./helpers"
+import { v4 as uuidv4 } from 'uuid';
 let allDealFields = await getFields(); // получаем все кастомные поля из CRM
-let alldeals = await getAllDeals();
-console.log(alldeals)
-
+// let alldeals = await getAllDeals();
+// console.log(alldeals)
 
 console.log("Program started")
 
@@ -13,15 +13,15 @@ function createPersonObject() {
     let newPerson = {};
     newPerson['first_name'] = document.getElementById('first-name').value;
     newPerson['last_name'] = document.getElementById('last-name').value;
-    newPerson['phone'] = [{ "value": document.getElementById('phone').value }]
-    newPerson['email'] = [{ "value": document.getElementById('email').value }]
+    newPerson['phone'] = [{ "value": document.getElementById('phone').value }] //[{ "value": "12345", "primary": "true", "label": "mobile" }]
+    newPerson['email'] = [{ "value": document.getElementById('email').value }] //[{ "value": "mail@example.com", "primary": "true", "label": "main" }]
     newPerson['name'] = `${newPerson['first_name']} ${newPerson['last_name']}`
     return newPerson;
 }
 //функция которая собирает Deal из полей формы
 function createDealObject() {
     let newDeal = {}
-    newDeal['title'] = "some title";
+    newDeal['title'] = uuidv4(); //добавила уникальный идентификатор для
 
     let jobDescription = getGetFieldByName("Job description", allDealFields)
     newDeal[jobDescription.key] = document.getElementById('job-description').value;
@@ -39,9 +39,9 @@ function createDealObject() {
     newDeal[scheduleField.key] = document.getElementById('start-date').value;
 
 
-    let startTimeField = getGetFieldByName("Job start time", allDealFields)
-    newDeal[startTimeField.key] = document.getElementById('start-time').value + ":00";
-    newDeal[`${startTimeField.key}_timezone_id`] = 151 //руками устанавливаю
+    // let startTimeField = getGetFieldByName("Job start time", allDealFields)
+    // newDeal[startTimeField.key] = document.getElementById('start-time').value + ":00";
+    // newDeal[`${startTimeField.key}_timezone_id`] = 151 //руками устанавливаю
 
     // let endTimeField = getGetFieldByName("Job end time", allDealFields)
     // newDeal[endTimeField.key] = document.getElementById('end-time').value + ":00"; //добавляю секунды тк формат в секундах

@@ -12,6 +12,7 @@
     "vite": "^5.4.0"
   },
   "dependencies": {
-    "pipedrive": "^23.2.2"
+    "pipedrive": "^23.2.2",
+    "uuid": "^10.0.0"
   }
 }
